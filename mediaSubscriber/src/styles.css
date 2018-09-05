@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+.mainBoard {
+    height: 100%;
+}
+
+html,body {
+    height: 100%;
+}
+
+.cards {
+    background-color: #e2e2e2;
+    height: 96%;
+}
+
+.cardTitle {
+    text-align: center
+}
