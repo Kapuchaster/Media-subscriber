@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Activity } from '../activity';
 
 @Component({
   selector: 'app-activity-list',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./activity-list.component.css']
 })
 export class ActivityListComponent implements OnInit {
-
+@Input() activities: Activity[];
   public isCollapsed = false;
 
   constructor() { }
