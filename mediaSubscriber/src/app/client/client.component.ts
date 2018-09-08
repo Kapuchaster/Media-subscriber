@@ -9,10 +9,16 @@ import { Activity } from '../activity';
 export class ClientComponent implements OnInit {
 
   activities = [new Activity('Sonic'), new Activity('Zelda')];
+  inputClientName = '';
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  addClient() {
+    this.activities.push(new Activity(this.inputClientName));
+    this.inputClientName = '';
   }
 
 }
