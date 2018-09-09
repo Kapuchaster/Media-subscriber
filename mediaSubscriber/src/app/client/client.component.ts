@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Activity } from '../activity';
-import { StorageService } from '../shared/storage.service';
+import { ListActionsService } from '../shared/list-actions.service';
 
 @Component({
   selector: 'app-client',
@@ -9,19 +9,21 @@ import { StorageService } from '../shared/storage.service';
 })
 export class ClientComponent implements OnInit {
 
-  activities = [new Activity('Sonic'), new Activity('Zelda')];
+  activities: Activity[] = [];
   inputClientName = '';
 
-  constructor(private storageService: StorageService) { }
+  constructor(
+    private listActionsService: ListActionsService) {
+      this.listActionsService.activitiesChange.subscribe(
+        value => { this.activities = value; });
+     }
 
   ngOnInit() {
-    this.activities = this.storageService.getFormStorage('activities');
+    this.listActionsService.callClients();
   }
 
   addClient() {
-    this.activities.push(new Activity(this.inputClientName));
+    this.listActionsService.addClient(this.inputClientName);
     this.inputClientName = '';
-    this.storageService.saveInStorage('activities', this.activities);
   }
-
 }
