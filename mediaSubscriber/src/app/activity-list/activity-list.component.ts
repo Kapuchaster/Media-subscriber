@@ -9,7 +9,6 @@ import { ListActionsService } from '../shared/list-actions.service';
 })
 export class ActivityListComponent implements OnInit {
 @Input() activities: Activity[];
-  public isCollapsed = false;
 
   constructor(private listActionsService: ListActionsService) { }
 
