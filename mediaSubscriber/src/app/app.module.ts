@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { ClientComponent } from './client/client.component';
 import { ServerComponent } from './server/server.component';
 import { ActivityListComponent } from './activity-list/activity-list.component';
+import { ActivityCreatorComponent } from './modals/activity-creator/activity-creator.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ClientComponent,
     ServerComponent,
-    ActivityListComponent
+    ActivityListComponent,
+    ActivityCreatorComponent
   ],
   imports: [
     BrowserModule,
