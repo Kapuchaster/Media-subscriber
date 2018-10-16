@@ -7,6 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ActivityCreatorComponent implements OnInit {
 
+  defaultButtons = [
+    { name: 'Cancel', actionType: 'close' },
+    { name: 'Accept', actionType: 'accept' }
+  ];
+
+  title: String = 'Activity Creator';
+
   constructor() { }
 
   ngOnInit() {
