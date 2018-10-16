@@ -4,7 +4,10 @@
   <div class="container">
       <div class="row no-gutters">
         <div class="col-sm-1">
-            <button class="btn btn-success rounded-left text-center addTaskButton" (click)="addTask()">+</button>
+           <app-activity-creator>
+               <button class="btn btn-success rounded-left text-center addTaskButton" 
+               data-toggle="modal" data-target="#exampleModal">+</button>
+           </app-activity-creator>
         </div>
         <div class="col-sm-11 tasksAlbum">
             <div class="container testimonial-group">

@@ -6,4 +6,13 @@ import { Injectable } from '@angular/core';
 export class ModalManagerService {
 
   constructor() { }
+
+  getModal(name) {
+
+  }
+
+  getRandId() {
+    return 1;
+  }
+
 }
