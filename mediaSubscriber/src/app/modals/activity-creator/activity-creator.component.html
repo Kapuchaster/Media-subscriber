@@ -11,7 +11,13 @@
           </button>
         </div>
         <div class="modal-body">
-          ...
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="title" aria-label="title" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+                <input class="input-group-text" id="basic-addon2" [(colorPicker)]="color" [style.background]="color"/>
+              <!-- <span class="input-group-text" id="basic-addon2">Color picker</span> -->
+            </div>
+          </div>
         </div>
         <div class="modal-footer">
           <button *ngFor="let button of defaultButtons" type="button" class="btn btn-secondary" data-dismiss="modal"> 

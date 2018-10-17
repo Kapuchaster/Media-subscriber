@@ -8,6 +8,7 @@ import { ClientComponent } from './client/client.component';
 import { ServerComponent } from './server/server.component';
 import { ActivityListComponent } from './activity-list/activity-list.component';
 import { ActivityCreatorComponent } from './modals/activity-creator/activity-creator.component';
+import { ColorPickerModule } from 'ngx-color-picker';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ActivityCreatorComponent } from './modals/activity-creator/activity-cre
   imports: [
     BrowserModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    ColorPickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
