@@ -14,8 +14,21 @@
           <div class="input-group">
             <input type="text" class="form-control" placeholder="title" aria-label="title" aria-describedby="basic-addon2">
             <div class="input-group-append">
-                <input class="input-group-text" id="basic-addon2" [(colorPicker)]="color" [style.background]="color"/>
-              <!-- <span class="input-group-text" id="basic-addon2">Color picker</span> -->
+                <span class="input-group-text" id="basic-addon2" [(colorPicker)]="color" [style.background]="color">
+                  Pick color
+                </span>
+            </div>
+          </div>
+          <div class="info-text">
+            <div class="container">
+              <div class="row">
+                <div class="col-2">
+                  <img src="assets/svg/info.svg"/>
+                </div>
+                <div class="col-10">
+                    This is a fake activity that will generate random string and publish results.
+                  </div>
+              </div>
             </div>
           </div>
         </div>
