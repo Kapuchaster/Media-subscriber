@@ -5,14 +5,14 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel"> {{ title }} </h5>
+          <h5 class="modal-title" id="exampleModalLabel"> {{ modalTitle }} </h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="title" aria-label="title" aria-describedby="basic-addon2">
+            <input type="text" class="form-control" [(ngModel)]="title" placeholder="title" aria-label="title" aria-describedby="basic-addon2">
             <div class="input-group-append">
                 <span class="input-group-text" id="basic-addon2" [(colorPicker)]="color" [style.background]="color">
                   Pick color
@@ -33,10 +33,13 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button *ngFor="let button of defaultButtons" type="button" class="btn btn-secondary" data-dismiss="modal"> 
+          <button *ngFor="let button of defaultButtons" 
+                  type="button" class="btn" data-dismiss="modal"
+                  (click)="closeCreator(button.actionType)"
+                  [ngClass]="{'btn-primary': button.actionType === 'accept' ? true : false}"
+                  [ngClass]="{'btn-secondary': button.actionType === 'accept' ? false : true}">
             {{ button.name }} 
           </button>
-          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
         </div>
       </div>
     </div>

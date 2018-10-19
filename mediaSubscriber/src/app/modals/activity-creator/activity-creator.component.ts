@@ -9,10 +9,16 @@ export class ActivityCreatorComponent implements OnInit {
 
   defaultButtons = [
     { name: 'Cancel', actionType: 'close' },
-    { name: 'Accept', actionType: 'accept' }
+    { name: 'Create', actionType: 'accept' }
   ];
 
-  title: String = 'Activity Creator';
+  modalTitle: String = 'Activity Creator';
+  color: String;
+  title: String;
+
+  closeCreator (actionType) {
+    console.log(this.title, this.color);
+  }
 
   constructor() { }
 
