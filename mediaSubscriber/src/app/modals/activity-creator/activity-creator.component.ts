@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { StorageService } from 'src/app/shared/storage.service';
+import ActivityActionsService from 'src/app/shared/activity-actions/activity-actions.service';
 import Activity from 'src/app/activity';
 
 @Component({
@@ -17,6 +19,12 @@ export class ActivityCreatorComponent implements OnInit {
   color: String;
   title: String;
 
+  constructor(private storageService: StorageService,
+              private activityActionsService: ActivityActionsService) {
+    this.activityActionsService.activitiesChange
+      .subscribe(function (x) { console.log(x); });
+  }
+
   closeCreator (actionType) {
     if (actionType === 'accept') {
       this.createActivity();
@@ -24,10 +32,9 @@ export class ActivityCreatorComponent implements OnInit {
   }
 
   createActivity () {
-    // let activity = new Activity(this.title, this.color);
+    const activity = new Activity(this.title, this.color);
+    this.activityActionsService.addActivity(activity);
   }
-
-  constructor() { }
 
   ngOnInit() {
   }
