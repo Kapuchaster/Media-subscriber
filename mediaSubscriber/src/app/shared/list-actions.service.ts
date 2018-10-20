@@ -1,41 +1,41 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { Activity } from '../activity';
+import { User } from '../user';
 import { StorageService } from '../shared/storage.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ListActionsService {
-  activities: Activity[] = [];
-  activitiesChange: Subject<Activity[]> = new Subject<Activity[]>();
+  users: User[] = [];
+  usersChange: Subject<User[]> = new Subject<User[]>();
 
   constructor(private storageService: StorageService) {
-    this.activitiesChange.subscribe((value) => {
-      this.activities = value;
+    this.usersChange.subscribe((value) => {
+      this.users = value;
     });
-    this.activities = this.storageService.getFormStorage('activities');
+    this.users = this.storageService.getFormStorage('users') || [];
   }
 
   addClient(name) {
-    this.activities.push(new Activity(name));
-    this.storageService.saveInStorage('activities', this.activities);
-    this.activitiesChange.next(this.activities);
+    this.users.push(new User(name));
+    this.storageService.saveInStorage('users', this.users);
+    this.usersChange.next(this.users);
   }
 
   deleteClient(name) {
-    const indexToRemove = this.activities.findIndex(
+    const indexToRemove = this.users.findIndex(
       function (obj) { return obj.name === name; });
 
     if (indexToRemove !== -1) {
-      this.activities.splice(indexToRemove, 1);
-      this.storageService.saveInStorage('activities', this.activities);
-      this.activitiesChange.next(this.activities);
+      this.users.splice(indexToRemove, 1);
+      this.storageService.saveInStorage('users', this.users);
+      this.usersChange.next(this.users);
     }
   }
 
   callClients() {
-    return this.activitiesChange.next(this.activities);
+    return this.usersChange.next(this.users);
   }
 
 }

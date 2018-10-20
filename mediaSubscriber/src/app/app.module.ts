@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { ClientComponent } from './client/client.component';
 import { ServerComponent } from './server/server.component';
-import { ActivityListComponent } from './activity-list/activity-list.component';
+import { UserListComponent } from './user-list/user-list.component';
 import { ActivityCreatorComponent } from './modals/activity-creator/activity-creator.component';
 import { ColorPickerModule } from 'ngx-color-picker';
 
@@ -15,7 +15,7 @@ import { ColorPickerModule } from 'ngx-color-picker';
     AppComponent,
     ClientComponent,
     ServerComponent,
-    ActivityListComponent,
+    UserListComponent,
     ActivityCreatorComponent
   ],
   imports: [

@@ -1,21 +1,21 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Activity } from '../activity';
+import { User } from '../user';
 import { ListActionsService } from '../shared/list-actions.service';
 
 @Component({
-  selector: 'app-activity-list',
-  templateUrl: './activity-list.component.html',
-  styleUrls: ['./activity-list.component.css']
+  selector: 'app-user-list',
+  templateUrl: './user-list.component.html',
+  styleUrls: ['./user-list.component.css']
 })
-export class ActivityListComponent implements OnInit {
-@Input() activities: Activity[];
+export class UserListComponent implements OnInit {
+@Input() users: User[];
 
   constructor(private listActionsService: ListActionsService) { }
 
   ngOnInit() {
   }
 
-  deleteActivity(name) {
+  deleteUser(name) {
     this.listActionsService.deleteClient(name);
   }
 

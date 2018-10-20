@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Activity } from '../activity';
+import { User } from '../user';
 import { ListActionsService } from '../shared/list-actions.service';
 
 @Component({
@@ -9,13 +9,13 @@ import { ListActionsService } from '../shared/list-actions.service';
 })
 export class ClientComponent implements OnInit {
 
-  activities: Activity[] = [];
+  users: User[] = [];
   inputClientName = '';
 
   constructor(
     private listActionsService: ListActionsService) {
-      this.listActionsService.activitiesChange.subscribe(
-        value => { this.activities = value; });
+      this.listActionsService.usersChange.subscribe(
+        value => { this.users = value; });
      }
 
   ngOnInit() {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import Activity from 'src/app/activity';
 
 @Component({
   selector: 'app-activity-creator',
@@ -17,7 +18,13 @@ export class ActivityCreatorComponent implements OnInit {
   title: String;
 
   closeCreator (actionType) {
-    console.log(this.title, this.color);
+    if (actionType === 'accept') {
+      this.createActivity();
+    }
+  }
+
+  createActivity () {
+    // let activity = new Activity(this.title, this.color);
   }
 
   constructor() { }

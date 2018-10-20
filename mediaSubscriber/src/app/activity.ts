@@ -1,7 +1,9 @@
-export class Activity {
-    name: string;
+export default class Activity {
+    title: string;
+    color: string;
 
-    constructor(name) {
-        this.name = name;
+    constructor(title, color) {
+        this.title = title;
+        this.color = color;
     }
 }

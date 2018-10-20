@@ -1,0 +1,14 @@
+<div *ngIf="users" class="accordion" id="accordionExample">
+  <div *ngFor="let user of users" class="card">
+    <div class="card-header" id="headingOne" style="display: flex; align-items: center; justify-content: center" data-toggle="collapse" [attr.data-target]="'#' + user.name">
+          {{user.name}}
+          <button (click)="deleteUser(user.name)" class="trash-in-list"><img src="assets/svg/trashcan.svg"/></button>
+    </div>
+
+    <div [id]=user.name class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+          {{user.name}} 
+      </div>
+    </div>
+  </div>
+</div>
