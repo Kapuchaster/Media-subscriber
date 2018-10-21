@@ -20,10 +20,7 @@ export class ActivityCreatorComponent implements OnInit {
   title: String;
 
   constructor(private storageService: StorageService,
-              private activityActionsService: ActivityActionsService) {
-    this.activityActionsService.activitiesChange
-      .subscribe(function (x) { console.log(x); });
-  }
+              private activityActionsService: ActivityActionsService) { }
 
   closeCreator (actionType) {
     if (actionType === 'accept') {
@@ -33,6 +30,8 @@ export class ActivityCreatorComponent implements OnInit {
 
   createActivity () {
     const activity = new Activity(this.title, this.color);
+    this.title = '';
+    this.color = '';
     this.activityActionsService.addActivity(activity);
   }
 

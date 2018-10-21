@@ -12,15 +12,10 @@
         <div class="col-sm-11 tasksAlbum">
             <div class="container testimonial-group">
                 <div class="row text-center flex-nowrap">
-                  <div class="col-sm-4">1</div>
-                  <div class="col-sm-4">2</div>
-                  <div class="col-sm-4">3</div>
-                  <div class="col-sm-4">4</div>
-                  <div class="col-sm-4">5</div>
-                  <div class="col-sm-4">6</div>
-                  <div class="col-sm-4">7</div>
-                  <div class="col-sm-4">8</div>
-                  <div class="col-sm-4">9</div>
+                  <div *ngFor="let activity of activities" class="col-sm-4" 
+                        [ngStyle]="{'background-color': activity.color ? activity.color : '#929292'}">
+                    {{ activity.title }}
+                  </div>
                 </div>
               </div>
         </div>

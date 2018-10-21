@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import ActivityActionsService from 'src/app/shared/activity-actions/activity-actions.service';
+import Activity from 'src/app/activity';
 
 @Component({
   selector: 'app-server',
@@ -7,7 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServerComponent implements OnInit {
 
-  constructor() { }
+  activities: Activity[] = [];
+
+  constructor(private activityActionsService: ActivityActionsService) {
+    this.activityActionsService.activitiesChange
+      .subscribe((activities) => {this.activities = activities; });
+   }
 
   ngOnInit() {
   }
