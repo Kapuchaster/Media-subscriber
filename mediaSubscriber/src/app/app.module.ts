@@ -9,6 +9,7 @@ import { ServerComponent } from './server/server.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { ActivityCreatorComponent } from './modals/activity-creator/activity-creator.component';
 import { ColorPickerModule } from 'ngx-color-picker';
+import { DragulaModule } from 'ng2-dragula';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ColorPickerModule } from 'ngx-color-picker';
     BrowserModule,
     NgbModule,
     FormsModule,
-    ColorPickerModule
+    ColorPickerModule,
+    DragulaModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
