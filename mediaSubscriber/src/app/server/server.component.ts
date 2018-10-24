@@ -11,6 +11,12 @@ export class ServerComponent implements OnInit {
 
   activities: Activity[] = [];
 
+  droppedData: string;
+
+  dragEnd(event) {
+    console.log('Element was dragged', event);
+  }
+
   constructor(private activityActionsService: ActivityActionsService) {
     this.activityActionsService.activitiesChange
       .subscribe((activities) => {this.activities = activities; });

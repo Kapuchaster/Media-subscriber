@@ -9,6 +9,7 @@ import { ServerComponent } from './server/server.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { ActivityCreatorComponent } from './modals/activity-creator/activity-creator.component';
 import { ColorPickerModule } from 'ngx-color-picker';
+import { DragAndDropModule } from 'angular-draggable-droppable';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ColorPickerModule } from 'ngx-color-picker';
     BrowserModule,
     NgbModule,
     FormsModule,
-    ColorPickerModule
+    ColorPickerModule,
+    DragAndDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]

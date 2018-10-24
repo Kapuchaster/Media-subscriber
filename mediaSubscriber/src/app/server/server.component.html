@@ -21,5 +21,12 @@
         </div>
       </div>
     </div>
+    <div mwlDraggable (dragEnd)="dragEnd($event)">Drag me!</div>
+    <div
+      mwlDroppable
+      (drop)="this.droppedData = $event.dropData">
+      <span [hidden]="droppedData">Drop here</span>
+      <span [hidden]="!droppedData">Item dropped here with data: "{{ droppedData }}"!</span>
+    </div>
 </div>
   
