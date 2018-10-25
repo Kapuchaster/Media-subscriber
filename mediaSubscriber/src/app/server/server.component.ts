@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import ActivityActionsService from 'src/app/shared/activity-actions/activity-actions.service';
 import Activity from 'src/app/activity';
+import { DropEvent } from 'angular-draggable-droppable';
 
 @Component({
   selector: 'app-server',
@@ -11,18 +12,22 @@ export class ServerComponent implements OnInit {
 
   activities: Activity[] = [];
 
-  droppedData: string;
+  droppedData = '';
 
-  dragEnd(event) {
-    console.log('Element was dragged', event);
-  }
 
   constructor(private activityActionsService: ActivityActionsService) {
     this.activityActionsService.activitiesChange
-      .subscribe((activities) => {this.activities = activities; });
-   }
+    .subscribe((activities) => {this.activities = activities; });
+  }
 
   ngOnInit() {
   }
+
+  onDrop({ dropData }: DropEvent<string>): void {
+    this.droppedData = dropData;
+    setTimeout(() => {
+      this.droppedData = '';
+  }, 2000);
+
 
 }
