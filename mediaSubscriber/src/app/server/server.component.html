@@ -16,7 +16,7 @@
                         mwlDraggable 
                         [dropData]="activity"
                         dragActiveClass="drag-active"
-                        [ngStyle]="{'background-color': activity.color ? activity.color : '#929292'}">
+                        [ngStyle]="{'background-color': activity.color}">
                     {{ activity.title }}
                   </div>
                 </div>
@@ -34,11 +34,14 @@
              dragOverClass="drop-over-active">
           <span [hidden]="droppedData">Drop here</span>
           <span [hidden]="!droppedData">Item dropped here with data: "{{ droppedData }}"!</span>
-          halu 
           <div *ngIf="droppedData && droppedData.title">
             {{droppedData.title}}
           </div>
         </div>
+      </div>
+      <div class="row no-gutters" *ngFor="let activeActivitie of activeActivities" 
+           [ngStyle]="{'background-color': activeActivitie.color}">
+          {{activeActivitie.title}}
       </div>
     </div>
 

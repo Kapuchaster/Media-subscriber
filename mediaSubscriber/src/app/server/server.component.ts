@@ -11,9 +11,8 @@ import { DropEvent } from 'angular-draggable-droppable';
 export class ServerComponent implements OnInit {
 
   activities: Activity[] = [];
-
   droppedData: Activity = null;
-
+  activeActivities: Activity[] = [];
 
   constructor(private activityActionsService: ActivityActionsService) {
     this.activityActionsService.activitiesChange
@@ -25,5 +24,6 @@ export class ServerComponent implements OnInit {
 
   onDrop({ dropData }: DropEvent<Activity>): void {
       this.droppedData = dropData;
+      this.activeActivities.push(dropData);
   }
 }

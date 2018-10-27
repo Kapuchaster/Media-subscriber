@@ -29,7 +29,7 @@ export class ActivityCreatorComponent implements OnInit {
   }
 
   createActivity () {
-    const activity = new Activity(this.title, this.color);
+    const activity = new Activity(this.title, this.color || '#929292');
     this.title = '';
     this.color = '';
     this.activityActionsService.addActivity(activity);
