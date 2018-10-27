@@ -13,7 +13,9 @@
             <div class="container testimonial-group">
                 <div class="row text-center flex-nowrap">
                   <div *ngFor="let activity of activities" class="col-sm-4" 
-                        mwlDraggable dropData="{{activity}}" dragActiveClass="drag-active"
+                        mwlDraggable 
+                        [dropData]="activity"
+                        dragActiveClass="drag-active"
                         [ngStyle]="{'background-color': activity.color ? activity.color : '#929292'}">
                     {{ activity.title }}
                   </div>
@@ -23,12 +25,21 @@
       </div>
     </div>
 
-    <div
-      mwlDroppable
-      (drop)="onDrop($event)"
-      dragOverClass="drop-over-active">
-      <span [hidden]="droppedData">Drop here</span>
-      <span [hidden]="!droppedData">Item dropped here with data: "{{ droppedData }}"!</span>
+    <div class="container">
+      <div class="row no-gutters">
+        <div class="col-sm" 
+             style="background-color: white"
+             mwlDroppable
+             (drop)="onDrop($event)"
+             dragOverClass="drop-over-active">
+          <span [hidden]="droppedData">Drop here</span>
+          <span [hidden]="!droppedData">Item dropped here with data: "{{ droppedData }}"!</span>
+          halu 
+          <div *ngIf="droppedData && droppedData.title">
+            {{droppedData.title}}
+          </div>
+        </div>
+      </div>
     </div>
 
 </div>

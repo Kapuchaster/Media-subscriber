@@ -12,7 +12,7 @@ export class ServerComponent implements OnInit {
 
   activities: Activity[] = [];
 
-  droppedData = '';
+  droppedData: Activity = null;
 
 
   constructor(private activityActionsService: ActivityActionsService) {
@@ -23,11 +23,7 @@ export class ServerComponent implements OnInit {
   ngOnInit() {
   }
 
-  onDrop({ dropData }: DropEvent<string>): void {
-    this.droppedData = dropData;
-    setTimeout(() => {
-      this.droppedData = '';
-  }, 2000);
-
-
+  onDrop({ dropData }: DropEvent<Activity>): void {
+      this.droppedData = dropData;
+  }
 }
