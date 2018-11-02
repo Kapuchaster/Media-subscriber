@@ -16,15 +16,19 @@ export class ServerComponent implements OnInit {
 
   constructor(private activityActionsService: ActivityActionsService) {
     this.activityActionsService.activitiesChange
-    .subscribe((activities) => { this.activities = activities; });
+      .subscribe((activities) => { this.activities = activities; });
+
+    this.activityActionsService.activeActivitiesChange
+      .subscribe((activeActivities) => { this.activeActivities = activeActivities; });
   }
 
   ngOnInit() {
     this.activityActionsService.callActivities();
+    this.activityActionsService.callActiveActivities();
   }
 
   onDrop({ dropData }: DropEvent<Activity>): void {
       this.droppedData = dropData;
-      this.activeActivities.push(dropData);
+      this.activityActionsService.addActiveActivity(dropData);
   }
 }
