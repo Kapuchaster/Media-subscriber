@@ -16,10 +16,11 @@ export class ServerComponent implements OnInit {
 
   constructor(private activityActionsService: ActivityActionsService) {
     this.activityActionsService.activitiesChange
-    .subscribe((activities) => {this.activities = activities; });
+    .subscribe((activities) => { this.activities = activities; });
   }
 
   ngOnInit() {
+    this.activityActionsService.callActivities();
   }
 
   onDrop({ dropData }: DropEvent<Activity>): void {
