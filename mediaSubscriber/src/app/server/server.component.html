@@ -26,9 +26,8 @@
     </div>
 
     <div class="container">
-      <div class="row no-gutters">
-        <div class="col-sm" 
-             style="background-color: white"
+      <div>
+        <div style="background-color: white"
              mwlDroppable
              (drop)="onDrop($event)"
              dragOverClass="drop-over-active">
@@ -36,9 +35,14 @@
           <div *ngIf="droppedData && droppedData.title">Added: {{ droppedData.title }} {{ droppedData.color }}!</div>
         </div>
       </div>
-      <div class="row no-gutters" *ngFor="let activeActivitie of activeActivities" 
-           [ngStyle]="{'background-color': activeActivitie.color}">
-          {{ activeActivitie.title }}
+      <div class="row no-gutters">
+          <div class="card col-sm-3" *ngFor="let activeActivitie of activeActivities">
+            <div class="card-header" [ngStyle]="{'background-color': activeActivitie.color}">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title tile-text">{{ activeActivitie.title }}</h5>
+            </div>
+          </div>
       </div>
     </div>
 
