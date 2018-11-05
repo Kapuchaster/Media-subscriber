@@ -31,8 +31,7 @@
              mwlDroppable
              (drop)="onDrop($event)"
              dragOverClass="drop-over-active">
-          <span> Drop here </span>
-          <div *ngIf="droppedData && droppedData.title">Added: {{ droppedData.title }} {{ droppedData.color }}!</div>
+          <div class="drop-place"> Drop here </div>
         </div>
       </div>
       <div class="row no-gutters">

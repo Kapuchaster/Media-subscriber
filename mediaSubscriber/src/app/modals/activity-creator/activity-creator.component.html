@@ -12,7 +12,8 @@
         </div>
         <div class="modal-body">
           <div class="input-group">
-            <input type="text" class="form-control" [(ngModel)]="title" placeholder="title" aria-label="title" aria-describedby="basic-addon2">
+            <input type="text" class="form-control" [(ngModel)]="title" placeholder="Type (Newspaper, Video, Movie, etc.)" 
+                   aria-label="title" aria-describedby="basic-addon2">
             <div class="input-group-append">
                 <span class="input-group-text" id="basic-addon2" [(colorPicker)]="color" [style.background]="color">
                   Pick color
@@ -26,7 +27,7 @@
                   <img src="assets/svg/info.svg"/>
                 </div>
                 <div class="col-10">
-                    This is a fake activity that will generate random string and publish results.
+                    This is an Entity, based on its type you can create publishing actions.
                   </div>
               </div>
             </div>
