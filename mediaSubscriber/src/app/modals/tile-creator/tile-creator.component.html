@@ -1,0 +1,45 @@
+<!-- Modal -->
+<div class="modal fade" id="test" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"> {{ modalTitle }} </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="input-group">
+            <input type="text" class="form-control" [(ngModel)]="title" placeholder="Type (Newspaper, Video, Movie, etc.)" 
+                   aria-label="title" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2" [(colorPicker)]="color" [style.background]="color">
+                  Pick color
+                </span>
+            </div>
+          </div>
+          <div class="info-text">
+            <div class="container">
+              <div class="row">
+                <div class="col-2">
+                  <img src="assets/svg/info.svg"/>
+                </div>
+                <div class="col-10">
+                    This is an Entity, based on its type you can create publishing actions.
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button *ngFor="let button of defaultButtons" 
+                  type="button" class="btn" data-dismiss="modal"
+                  (click)="closeCreator(button.actionType)"
+                  [ngClass]="{'btn-primary': button.actionType === 'accept' ? true : false}"
+                  [ngClass]="{'btn-secondary': button.actionType === 'accept' ? false : true}">
+            {{ button.name }} 
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -10,6 +10,7 @@ import { UserListComponent } from './user-list/user-list.component';
 import { ActivityCreatorComponent } from './modals/activity-creator/activity-creator.component';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { DragAndDropModule } from 'angular-draggable-droppable';
+import { TileCreatorComponent } from './modals/tile-creator/tile-creator.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { DragAndDropModule } from 'angular-draggable-droppable';
     ClientComponent,
     ServerComponent,
     UserListComponent,
-    ActivityCreatorComponent
+    ActivityCreatorComponent,
+    TileCreatorComponent
   ],
   imports: [
     BrowserModule,
