@@ -10,25 +10,8 @@
         </div>
         <div class="modal-body">
           <div class="input-group">
-            <input type="text" class="form-control" [(ngModel)]="title" placeholder="Type (Newspaper, Video, Movie, etc.)" 
+            <input type="text" class="form-control" [(ngModel)]="title" placeholder="Name of the new activity of the given Type" 
                    aria-label="title" aria-describedby="basic-addon2">
-            <div class="input-group-append">
-                <span class="input-group-text" id="basic-addon2" [(colorPicker)]="color" [style.background]="color">
-                  Pick color
-                </span>
-            </div>
-          </div>
-          <div class="info-text">
-            <div class="container">
-              <div class="row">
-                <div class="col-2">
-                  <img src="assets/svg/info.svg"/>
-                </div>
-                <div class="col-10">
-                    This is an Entity, based on its type you can create publishing actions.
-                  </div>
-              </div>
-            </div>
           </div>
         </div>
         <div class="modal-footer">

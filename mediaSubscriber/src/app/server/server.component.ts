@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import ActivityActionsService from 'src/app/shared/activity-actions/activity-actions.service';
+import ServerService from './server.service';
 import Activity from 'src/app/activity';
 import { DropEvent } from 'angular-draggable-droppable';
-declare var jquery: any;
-declare var $: any;
 
 @Component({
   selector: 'app-server',
@@ -15,7 +14,8 @@ export class ServerComponent implements OnInit {
   droppedData: Activity = null;
   activeActivities: Activity[] = [];
 
-  constructor(private activityActionsService: ActivityActionsService) {
+  constructor(private activityActionsService: ActivityActionsService,
+              private serverService: ServerService) {
     this.activityActionsService.activitiesChange
       .subscribe((activities) => { this.activities = activities; });
 
@@ -29,7 +29,8 @@ export class ServerComponent implements OnInit {
   }
 
   onDrop({ dropData }: DropEvent<Activity>): void {
-      $('#test').modal('show');
+
+      this.serverService.getReadyTile().subscribe(function (x) {console.log(x); });
 
       // this.droppedData = dropData;
       // this.activityActionsService.addActiveActivity(dropData);

@@ -37,6 +37,7 @@
       <div class="row no-gutters">
           <div class="card col-sm-3" *ngFor="let activeActivitie of activeActivities">
             <div class="card-header" [ngStyle]="{'background-color': activeActivitie.color}">
+                {{ activeActivitie.title }}
             </div>
             <div class="card-body">
               <h5 class="card-title tile-text">{{ activeActivitie.title }}</h5>
