@@ -30,7 +30,7 @@ export class ServerComponent implements OnInit {
 
   onDrop({ dropData }: DropEvent<Activity>): void {
 
-      this.serverService.getReadyTile().subscribe(function (x) {console.log(x); });
+      this.serverService.createTile();
 
       // this.droppedData = dropData;
       // this.activityActionsService.addActiveActivity(dropData);

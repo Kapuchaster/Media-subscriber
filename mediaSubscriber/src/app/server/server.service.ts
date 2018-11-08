@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
 declare var jquery: any;
 declare var $: any;
 
@@ -10,13 +9,7 @@ export default class ServerService {
 
   constructor() { }
 
-  createTile(): Observable<string> {
-    $('#test').modal('show');
-    return of('HEROES');
+  createTile() {
+    $('#tile-creator').modal('show');
   }
-
-  getReadyTile(): Observable<string> {
-    return of('Ready');
-  }
-
 }

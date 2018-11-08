@@ -1,5 +1,7 @@
 import { Component, OnInit, Input  } from '@angular/core';
 import ServerService from 'src/app/server/server.service';
+import ActivityActionsService from 'src/app/shared/activity-actions/activity-actions.service';
+import Activity from 'src/app/activity';
 
 @Component({
   selector: 'app-tile-creator',
@@ -14,18 +16,23 @@ export class TileCreatorComponent implements OnInit {
   ];
 
   modalTitle = 'Tile Creator';
+  title = '';
 
-  constructor(private serverService: ServerService) { }
+  constructor(private serverService: ServerService,
+              private activityActionsService: ActivityActionsService) { }
 
   ngOnInit() {
   }
 
   closeCreator (actionType) {
     if (actionType === 'accept') {
-      this.serverService.createTile();
+      this.createActivity();
     }
   }
 
-
-
+  createActivity () {
+    const activity = new Activity(this.title, 'this.color' || '#929292');
+    this.title = '';
+    this.activityActionsService.addActiveActivity(activity);
+  }
 }
