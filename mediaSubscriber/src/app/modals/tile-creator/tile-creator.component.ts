@@ -9,6 +9,7 @@ import Activity from 'src/app/activity';
   styleUrls: ['./tile-creator.component.css']
 })
 export class TileCreatorComponent implements OnInit {
+  @Input() entity: Activity;
 
   defaultButtons = [
     { name: 'Cancel', actionType: 'close' },
@@ -31,8 +32,9 @@ export class TileCreatorComponent implements OnInit {
   }
 
   createActivity () {
-    const activity = new Activity(this.title, 'this.color' || '#929292');
-    this.title = '';
-    this.activityActionsService.addActiveActivity(activity);
+    console.log(this.entity.title);
+    // const activity = new Activity(this.title, 'this.color' || '#929292');
+    // this.title = '';
+    // this.activityActionsService.addActiveActivity(activity);
   }
 }

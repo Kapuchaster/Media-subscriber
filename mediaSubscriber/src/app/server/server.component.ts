@@ -13,6 +13,7 @@ export class ServerComponent implements OnInit {
   activities: Activity[] = [];
   droppedData: Activity = null;
   activeActivities: Activity[] = [];
+  dropData = null;
 
   constructor(private activityActionsService: ActivityActionsService,
               private serverService: ServerService) {
@@ -29,10 +30,7 @@ export class ServerComponent implements OnInit {
   }
 
   onDrop({ dropData }: DropEvent<Activity>): void {
-
-      this.serverService.createTile();
-
-      // this.droppedData = dropData;
-      // this.activityActionsService.addActiveActivity(dropData);
+    this.dropData = dropData;
+    this.serverService.createTile();
   }
 }
