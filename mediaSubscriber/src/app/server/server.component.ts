@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import EntityActionsService from 'src/app/shared/entity-actions/entity-actions.service';
 import ServerService from './server.service';
 import Entity from 'src/app/entity';
+import Activity from 'src/app/activity';
 import { DropEvent } from 'angular-draggable-droppable';
 
 @Component({
@@ -10,9 +11,9 @@ import { DropEvent } from 'angular-draggable-droppable';
   styleUrls: ['./server.component.css']
 })
 export class ServerComponent implements OnInit {
+  activities: Activity[] = [];
   entities: Entity[] = [];
   droppedData: Entity = null;
-  activeEntities: Entity[] = [];
   dropData = null;
 
   constructor(private entityActionsService: EntityActionsService,
@@ -20,13 +21,13 @@ export class ServerComponent implements OnInit {
     this.entityActionsService.entitiesChange
       .subscribe((entities) => { this.entities = entities; });
 
-    this.entityActionsService.activeEntitiesChange
-      .subscribe((activeEntities) => { this.activeEntities = activeEntities; });
+    this.entityActionsService.activitiesChange
+      .subscribe((activities) => { this.activities = activities; });
   }
 
   ngOnInit() {
     this.entityActionsService.callEntities();
-    this.entityActionsService.callActiveEntities();
+    this.entityActionsService.callActivities();
   }
 
   onDrop({ dropData }: DropEvent<Entity>): void {

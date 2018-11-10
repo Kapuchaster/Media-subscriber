@@ -2,6 +2,7 @@ import { Component, OnInit, Input  } from '@angular/core';
 import ServerService from 'src/app/server/server.service';
 import EntityActionsService from 'src/app/shared/entity-actions/entity-actions.service';
 import Entity from 'src/app/entity';
+import Activity from 'src/app/activity';
 
 @Component({
   selector: 'app-tile-creator',
@@ -32,7 +33,8 @@ export class TileCreatorComponent implements OnInit {
   }
 
   createEntity () {
+    const activity = new Activity(this.title, this.entity);
     this.title = '';
-    this.entityActionsService.addActiveEntity(this.entity);
+    this.entityActionsService.addActivity(activity);
   }
 }

@@ -1,11 +1,11 @@
+import Entity from 'src/app/entity';
+
 export default class Activity {
     title: string;
-    color: string;
-    type: string;
+    entity: Entity;
 
-    constructor(title, color, type) {
+    constructor(title, entity) {
         this.title = title;
-        this.color = color;
-        this.type = type;
+        this.entity = entity;
     }
 }

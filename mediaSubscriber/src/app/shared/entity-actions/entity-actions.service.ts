@@ -2,15 +2,16 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import Entity from 'src/app/entity';
 import { StorageService } from 'src/app/shared/storage.service';
+import Activity from 'src/app/activity';
 
 @Injectable({
   providedIn: 'root'
 })
 export default class EntityActionsService {
   entities: Entity[] = [];
-  activeEntities: Entity[] = [];
+  activities: Activity[] = [];
   entitiesChange: Subject<Entity[]> = new Subject<Entity[]>();
-  activeEntitiesChange: Subject<Entity[]> = new Subject<Entity[]>();
+  activitiesChange: Subject<Activity[]> = new Subject<Activity[]>();
 
   constructor(private storageService: StorageService) {
     this.entitiesChange.subscribe((value) => {
@@ -18,18 +19,18 @@ export default class EntityActionsService {
     });
     this.entities = this.storageService.getFormStorage('entityTemps') || [];
 
-    this.activeEntitiesChange.subscribe((value) => {
-      this.activeEntities = value;
+    this.activitiesChange.subscribe((value) => {
+      this.activities = value;
     });
-    this.activeEntities = this.storageService.getFormStorage('activeEntity') || [];
+    this.activities = this.storageService.getFormStorage('activityTemps') || [];
   }
 
   callEntities() {
     return this.entitiesChange.next(this.entities);
   }
 
-  callActiveEntities() {
-    return this.activeEntitiesChange.next(this.activeEntities);
+  callActivities() {
+    return this.activitiesChange.next(this.activities);
   }
 
   addEntity(entity: Entity) {
@@ -38,9 +39,9 @@ export default class EntityActionsService {
     this.entitiesChange.next(this.entities);
   }
 
-  addActiveEntity(entity: Entity) {
-    this.activeEntities.push(entity);
-    this.storageService.saveInStorage('activeEntity',  this.activeEntities);
-    this.activeEntitiesChange.next(this.activeEntities);
+  addActivity(activity: Activity) {
+    this.activities.push(activity);
+    this.storageService.saveInStorage('activityTemps',  this.activities);
+    this.activitiesChange.next(this.activities);
   }
 }
