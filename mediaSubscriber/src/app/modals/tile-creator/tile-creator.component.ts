@@ -1,7 +1,7 @@
 import { Component, OnInit, Input  } from '@angular/core';
 import ServerService from 'src/app/server/server.service';
-import ActivityActionsService from 'src/app/shared/activity-actions/activity-actions.service';
-import Activity from 'src/app/activity';
+import EntityActionsService from 'src/app/shared/entity-actions/entity-actions.service';
+import Entity from 'src/app/entity';
 
 @Component({
   selector: 'app-tile-creator',
@@ -9,7 +9,7 @@ import Activity from 'src/app/activity';
   styleUrls: ['./tile-creator.component.css']
 })
 export class TileCreatorComponent implements OnInit {
-  @Input() entity: Activity;
+  @Input() entity: Entity;
 
   defaultButtons = [
     { name: 'Cancel', actionType: 'close' },
@@ -20,21 +20,19 @@ export class TileCreatorComponent implements OnInit {
   title = '';
 
   constructor(private serverService: ServerService,
-              private activityActionsService: ActivityActionsService) { }
+              private entityActionsService: EntityActionsService) { }
 
   ngOnInit() {
   }
 
   closeCreator (actionType) {
     if (actionType === 'accept') {
-      this.createActivity();
+      this.createEntity();
     }
   }
 
-  createActivity () {
-    console.log(this.entity.title);
-    // const activity = new Activity(this.title, 'this.color' || '#929292');
-    // this.title = '';
-    // this.activityActionsService.addActiveActivity(activity);
+  createEntity () {
+    this.title = '';
+    this.entityActionsService.addActiveEntity(this.entity);
   }
 }

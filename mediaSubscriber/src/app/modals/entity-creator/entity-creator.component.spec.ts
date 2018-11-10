@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ActivityCreatorComponent } from './activity-creator.component';
+import { EntityCreatorComponent } from './entity-creator.component';
 
-describe('ActivityCreatorComponent', () => {
-  let component: ActivityCreatorComponent;
-  let fixture: ComponentFixture<ActivityCreatorComponent>;
+describe('EntityCreatorComponent', () => {
+  let component: EntityCreatorComponent;
+  let fixture: ComponentFixture<EntityCreatorComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ActivityCreatorComponent ]
+      declarations: [ EntityCreatorComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ActivityCreatorComponent);
+    fixture = TestBed.createComponent(EntityCreatorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,7 +1,7 @@
 <!-- Element that toggle modal -->
 <ng-content></ng-content> 
 <!-- Modal -->
-<div class="modal fade" id="newActivityModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="newEntityModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -12,8 +12,8 @@
         </div>
         <div class="modal-body">
           <div class="input-group">
-            <input type="text" class="form-control" [(ngModel)]="title" placeholder="Type (Newspaper, Video, Movie, etc.)" 
-                   aria-label="title" aria-describedby="basic-addon2">
+            <input type="text" class="form-control" [(ngModel)]="type" placeholder="Type (Newspaper, Video, Movie, etc.)" 
+                   aria-label="type" aria-describedby="basic-addon2">
             <div class="input-group-append">
                 <span class="input-group-text" id="basic-addon2" [(colorPicker)]="color" [style.background]="color">
                   Pick color
@@ -27,7 +27,7 @@
                   <img src="assets/svg/info.svg"/>
                 </div>
                 <div class="col-10">
-                    This is an Entity, based on its type you can create publishing actions.
+                    This is an Entity, based on its type you can create activities.
                   </div>
               </div>
             </div>

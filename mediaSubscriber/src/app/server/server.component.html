@@ -4,20 +4,20 @@
   <div class="container">
       <div class="row no-gutters">
         <div class="col-sm-1">
-           <app-activity-creator>
+           <app-entity-creator>
                <button class="btn btn-success rounded-left text-center addTaskButton" 
-                       data-toggle="modal" data-target="#newActivityModal">+</button>
-           </app-activity-creator>
+                       data-toggle="modal" data-target="#newEntityModal">+</button>
+           </app-entity-creator>
         </div>
         <div class="col-sm-11 tasksAlbum">
             <div class="container testimonial-group">
                 <div class="row text-center flex-nowrap">
-                  <div *ngFor="let activity of activities" class="col-sm-4" 
+                  <div *ngFor="let entity of entities" class="col-sm-4" 
                         mwlDraggable 
-                        [dropData]="activity"
+                        [dropData]="entity"
                         dragActiveClass="drag-active"
-                        [ngStyle]="{'background-color': activity.color}">
-                    {{ activity.title }}
+                        [ngStyle]="{'background-color': entity.color}">
+                    {{ entity.type }}
                   </div>
                 </div>
               </div>
@@ -35,12 +35,12 @@
         </div>
       </div>
       <div class="row no-gutters">
-          <div class="card col-sm-3" *ngFor="let activeActivitie of activeActivities">
-            <div class="card-header" [ngStyle]="{'background-color': activeActivitie.color}">
-                {{ activeActivitie.title }}
+          <div class="card col-sm-3" *ngFor="let activeEntities of activeEntitiess">
+            <div class="card-header" [ngStyle]="{'background-color': activeEntities.color}">
+                {{ activeEntities.type }}
             </div>
             <div class="card-body">
-              <h5 class="card-title tile-text">{{ activeActivitie.title }}</h5>
+              <h5 class="card-title tile-text">{{ activeEntities.type }}</h5>
             </div>
           </div>
       </div>

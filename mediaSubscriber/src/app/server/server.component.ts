@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import ActivityActionsService from 'src/app/shared/activity-actions/activity-actions.service';
+import EntityActionsService from 'src/app/shared/entity-actions/entity-actions.service';
 import ServerService from './server.service';
-import Activity from 'src/app/activity';
+import Entity from 'src/app/entity';
 import { DropEvent } from 'angular-draggable-droppable';
 
 @Component({
@@ -10,26 +10,26 @@ import { DropEvent } from 'angular-draggable-droppable';
   styleUrls: ['./server.component.css']
 })
 export class ServerComponent implements OnInit {
-  activities: Activity[] = [];
-  droppedData: Activity = null;
-  activeActivities: Activity[] = [];
+  entities: Entity[] = [];
+  droppedData: Entity = null;
+  activeEntities: Entity[] = [];
   dropData = null;
 
-  constructor(private activityActionsService: ActivityActionsService,
+  constructor(private entityActionsService: EntityActionsService,
               private serverService: ServerService) {
-    this.activityActionsService.activitiesChange
-      .subscribe((activities) => { this.activities = activities; });
+    this.entityActionsService.entitiesChange
+      .subscribe((entities) => { this.entities = entities; });
 
-    this.activityActionsService.activeActivitiesChange
-      .subscribe((activeActivities) => { this.activeActivities = activeActivities; });
+    this.entityActionsService.activeEntitiesChange
+      .subscribe((activeEntities) => { this.activeEntities = activeEntities; });
   }
 
   ngOnInit() {
-    this.activityActionsService.callActivities();
-    this.activityActionsService.callActiveActivities();
+    this.entityActionsService.callEntities();
+    this.entityActionsService.callActiveEntities();
   }
 
-  onDrop({ dropData }: DropEvent<Activity>): void {
+  onDrop({ dropData }: DropEvent<Entity>): void {
     this.dropData = dropData;
     this.serverService.createTile();
   }
