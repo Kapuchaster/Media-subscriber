@@ -35,12 +35,12 @@
         </div>
       </div>
       <div class="row no-gutters">
-          <div class="card col-sm-3" *ngFor="let activeEntities of activeEntitiess">
-            <div class="card-header" [ngStyle]="{'background-color': activeEntities.color}">
-                {{ activeEntities.type }}
+          <div class="card col-sm-3" *ngFor="let activity of activities">
+            <div class="card-header" [ngStyle]="{'background-color': activity.entity.color}">
+                {{ activity.entity.type }}
             </div>
             <div class="card-body">
-              <h5 class="card-title tile-text">{{ activeEntities.type }}</h5>
+              <h5 class="card-title tile-text">{{ activity.title }}</h5>
             </div>
           </div>
       </div>
