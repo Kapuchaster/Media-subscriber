@@ -38,4 +38,8 @@ export class ServerComponent implements OnInit {
   deleteActivity(activity: Activity) {
     this.entityActionsService.deleteActivity(activity);
   }
+
+  deleteEntity(entity: Entity) {
+    this.entityActionsService.deleteEntity(entity);
+  }
 }

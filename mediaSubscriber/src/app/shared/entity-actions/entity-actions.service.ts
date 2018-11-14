@@ -39,7 +39,16 @@ export default class EntityActionsService {
     this.entitiesChange.next(this.entities);
   }
 
-  deleteEntity(entity: Entity) {}
+  deleteEntity(entity: Entity) {
+    const indexToRemove = this.entities.findIndex(
+      function (obj) { return obj.type === entity.type; });
+
+    if (indexToRemove !== -1) {
+      this.entities.splice(indexToRemove, 1);
+      this.storageService.saveInStorage('entityTemps', this.entities);
+      this.entitiesChange.next(this.entities);
+    }
+  }
 
   addActivity(activity: Activity) {
     this.activities.push(activity);
