@@ -34,4 +34,8 @@ export class ServerComponent implements OnInit {
     this.dropData = dropData;
     this.serverService.createTile();
   }
+
+  deleteActivity(activity: Activity) {
+    this.entityActionsService.deleteActivity(activity);
+  }
 }

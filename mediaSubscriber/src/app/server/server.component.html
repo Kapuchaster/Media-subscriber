@@ -38,6 +38,9 @@
           <div class="card col-sm-3" *ngFor="let activity of activities">
             <div class="card-header" [ngStyle]="{'background-color': activity.entity.color}">
                 {{ activity.entity.type }}
+                <span style="float: right" (click)="deleteActivity(activity)">
+                  [x]
+                </span>
             </div>
             <div class="card-body">
               <h5 class="card-title tile-text">{{ activity.title }}</h5>

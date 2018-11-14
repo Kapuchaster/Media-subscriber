@@ -39,9 +39,22 @@ export default class EntityActionsService {
     this.entitiesChange.next(this.entities);
   }
 
+  deleteEntity(entity: Entity) {}
+
   addActivity(activity: Activity) {
     this.activities.push(activity);
     this.storageService.saveInStorage('activityTemps',  this.activities);
     this.activitiesChange.next(this.activities);
+  }
+
+  deleteActivity(activity: Activity) {
+    const indexToRemove = this.activities.findIndex(
+      function (obj) { return obj.title === activity.title; });
+
+    if (indexToRemove !== -1) {
+      this.activities.splice(indexToRemove, 1);
+      this.storageService.saveInStorage('activityTemps', this.activities);
+      this.activitiesChange.next(this.activities);
+    }
   }
 }
