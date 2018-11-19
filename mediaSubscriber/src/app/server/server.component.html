@@ -4,29 +4,29 @@
   <div class="container">
       <div class="row no-gutters">
         <div class="col-sm-1">
-           <app-entity-creator>
-               <button class="btn btn-success text-center addTaskButton" 
-                       data-toggle="modal" data-target="#newEntityModal">+</button>
-           </app-entity-creator>
+          <app-entity-creator>
+              <button class="btn btn-success text-center addTaskButton" 
+                      data-toggle="modal" data-target="#newEntityModal">+</button>
+          </app-entity-creator>
         </div>
         <div class="col-sm-11 tasksAlbum">
-            <div class="container testimonial-group">
-                <div class="row text-center flex-nowrap">
-                  <div *ngFor="let entity of entities" class="col-sm-4 entityType" 
-                        mwlDraggable 
-                        [dropData]="entity"
-                        dragActiveClass="drag-active"
-                        [ngStyle]="{'background-color': entity.color}">
-                    <div>
-                      {{ entity.type }}
-                      <span style="float: right" (click)="deleteEntity(entity)">
-                        [x]
-                      </span>
+          <div class="container testimonial-group">
+            <div class="row text-center flex-nowrap">
+              <div *ngFor="let entity of entities" class="col-sm-4 entityType" 
+                    mwlDraggable 
+                    [dropData]="entity"
+                    dragActiveClass="drag-active"
+                    [ngStyle]="{'background-color': entity.color}">
+                <div>
+                  {{ entity.type }}
+                  <span style="float: right" (click)="deleteEntity(entity)">
+                    [x]
+                  </span>
 
-                    </div>
-                  </div>
                 </div>
               </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -43,14 +43,19 @@
       <div class="row no-gutters">
           <div class="card col-sm-3" *ngFor="let activity of activities">
             <div class="card-header" [ngStyle]="{'background-color': activity.entity.color}">
-                <div>
-                  <span style="float: right" (click)="deleteActivity(activity)">
-                    [x]
-                  </span>
-                </div>{{ activity.entity.type }}
+              <div>
+                <span style="float: right" (click)="deleteActivity(activity)">
+                  [x]
+                </span>
+              </div>{{ activity.entity.type }}
             </div>
             <div class="card-body">
-              <h5 class="card-title tile-text">{{ activity.title }}</h5>
+              <span style="color: black">
+                  {{ activity.title }}
+              </span>
+              <span style="color: black; float: right">
+                  {{ activity.interval }}
+              </span>
             </div>
           </div>
       </div>

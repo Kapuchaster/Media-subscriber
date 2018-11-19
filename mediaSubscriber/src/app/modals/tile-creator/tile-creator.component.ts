@@ -12,6 +12,7 @@ import Activity from 'src/app/activity';
 export class TileCreatorComponent implements OnInit {
   @Input() entity: Entity;
 
+  selectedInterval = 5;
   defaultButtons = [
     { name: 'Cancel', actionType: 'close' },
     { name: 'Create', actionType: 'accept' }
@@ -33,7 +34,7 @@ export class TileCreatorComponent implements OnInit {
   }
 
   createEntity () {
-    const activity = new Activity(this.title, this.entity);
+    const activity = new Activity(this.title, this.entity, this.selectedInterval);
     this.title = '';
     this.entityActionsService.addActivity(activity);
   }
