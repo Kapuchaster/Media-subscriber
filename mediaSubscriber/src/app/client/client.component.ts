@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../user';
 import { ListActionsService } from '../shared/list-actions.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-client',
@@ -8,7 +9,7 @@ import { ListActionsService } from '../shared/list-actions.service';
   styleUrls: ['./client.component.css']
 })
 export class ClientComponent implements OnInit {
-
+  form;
   users: User[] = [];
   inputClientName = '';
 
@@ -20,6 +21,9 @@ export class ClientComponent implements OnInit {
 
   ngOnInit() {
     this.listActionsService.callClients();
+    this.form = new FormGroup({
+      userName: new FormControl('', Validators.required)
+    });
   }
 
   addClient() {
