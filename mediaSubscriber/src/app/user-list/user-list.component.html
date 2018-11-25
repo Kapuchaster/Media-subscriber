@@ -2,7 +2,7 @@
   <div *ngFor="let user of users" class="card">
     <div class="card-header" id="headingOne" style="display: flex; align-items: center; justify-content: center" data-toggle="collapse" [attr.data-target]="'#' + user.id">
       {{user.name}}
-      <button (click)="deleteUser(user.name)" class="trash-in-list"><img src="assets/svg/trashcan.svg"/></button>
+      <button (click)="deleteUser(user)" class="trash-in-list"><img src="assets/svg/trashcan.svg"/></button>
     </div>
 
     <div [id]=user.id class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
