@@ -27,6 +27,7 @@ export class ClientComponent implements OnInit {
   }
 
   addClient() {
+    if (!this.form.valid) { return; }
     this.listActionsService.addClient(this.inputClientName);
     this.inputClientName = '';
   }
