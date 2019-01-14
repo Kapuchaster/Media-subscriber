@@ -1,3 +1,9 @@
 .baseBoard {
     background-color: #a5a5a5;
 }
+
+@media (max-width: 768px) { 
+    .baseBoard {
+        padding: 0px;
+    }
+ }
