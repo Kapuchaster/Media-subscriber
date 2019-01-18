@@ -3,6 +3,7 @@ import { Subject } from 'rxjs';
 import Entity from 'src/app/entity';
 import { StorageService } from 'src/app/shared/storage.service';
 import Activity from 'src/app/activity';
+import { d } from '@angular/core/src/render3';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +23,10 @@ export default class EntityActionsService {
     this.activitiesChange.subscribe((value) => {
       this.activities = value;
     });
-    this.activities = this.storageService.getFormStorage('activityTemps') || [];
+    const activitiesTmp = this.storageService.getFormStorage('activityTemps') || [];
+    for (const a of activitiesTmp) {
+      this.activities.push(new Activity(a.title, a.entity, a.interval));
+    }
   }
 
   callEntities() {

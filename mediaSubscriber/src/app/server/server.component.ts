@@ -15,6 +15,7 @@ export class ServerComponent implements OnInit {
   entities: Entity[] = [];
   droppedData: Entity = null;
   dropData = null;
+  test = 999;
 
   constructor(private entityActionsService: EntityActionsService,
               private serverService: ServerService) {
@@ -23,6 +24,7 @@ export class ServerComponent implements OnInit {
 
     this.entityActionsService.activitiesChange
       .subscribe((activities) => { this.activities = activities; });
+
   }
 
   ngOnInit() {

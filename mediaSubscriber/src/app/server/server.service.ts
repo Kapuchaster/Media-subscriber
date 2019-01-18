@@ -7,7 +7,9 @@ declare var $: any;
 })
 export default class ServerService {
 
-  constructor() { }
+  constructor() {
+
+  }
 
   createTile() {
     $('#tile-creator').modal('show');

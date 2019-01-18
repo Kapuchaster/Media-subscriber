@@ -7,11 +7,11 @@ export class StorageService {
 
   constructor() { }
 
-  saveInStorage(name, value) {
+  saveInStorage(name: any, value: any) {
     localStorage.setItem(name, JSON.stringify(value));
   }
 
-  getFormStorage(name) {
+  getFormStorage(name: any) {
     return JSON.parse(localStorage.getItem(name));
   }
 
