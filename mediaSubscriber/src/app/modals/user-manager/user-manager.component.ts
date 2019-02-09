@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import EntityActionsService from 'src/app/shared/entity-actions/entity-actions.service';
+import Activity from 'src/app/activity';
 
 @Component({
   selector: 'app-user-manager',
@@ -6,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-manager.component.css']
 })
 export class UserManagerComponent implements OnInit {
+  activities: Activity[] = [];
 
-  constructor() { }
+  constructor(private entityActionsService: EntityActionsService) {
+    this.entityActionsService.activitiesChange
+    .subscribe((activities) => { this.activities = activities; });
+  }
 
   ngOnInit() {
   }
