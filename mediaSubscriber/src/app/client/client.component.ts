@@ -9,7 +9,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./client.component.css']
 })
 export class ClientComponent implements OnInit {
-  form;
+  form: FormGroup;
   users: User[] = [];
   inputClientName = '';
 

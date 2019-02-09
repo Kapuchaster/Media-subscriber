@@ -7,7 +7,9 @@
 
     <div [id]=user.id class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
       <div class="card-body">
-        {{user.name}} 
+          <button class="btn btn-success text-center addTaskButton" 
+          data-toggle="modal" data-target="#newManagerModal">+</button>
+        <!-- <button class="btn btn-success addToWatch" (click)="addToWatchList()"> Add element to your watch list </button> -->
       </div>
     </div>
   </div>

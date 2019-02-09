@@ -8,6 +8,7 @@ import { ClientComponent } from './client/client.component';
 import { ServerComponent } from './server/server.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { EntityCreatorComponent } from './modals/entity-creator/entity-creator.component';
+import { UserManagerComponent } from './modals/user-manager/user-manager.component';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { DragAndDropModule } from 'angular-draggable-droppable';
 import { TileCreatorComponent } from './modals/tile-creator/tile-creator.component';
@@ -19,7 +20,8 @@ import { TileCreatorComponent } from './modals/tile-creator/tile-creator.compone
     ServerComponent,
     UserListComponent,
     EntityCreatorComponent,
-    TileCreatorComponent
+    TileCreatorComponent,
+    UserManagerComponent
   ],
   imports: [
     BrowserModule,
