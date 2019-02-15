@@ -29,6 +29,7 @@ export class EntityCreatorComponent implements OnInit {
   }
 
   createEntity () {
+    if (!this.type) { return; }
     const entity = new Entity(this.type, this.color || '#929292');
     this.type = '';
     this.color = '';

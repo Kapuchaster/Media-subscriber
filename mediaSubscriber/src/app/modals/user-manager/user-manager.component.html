@@ -13,6 +13,7 @@
         <div class="modal-body">
             <!-- display here list of activities form service -->
             <div *ngFor="let activity of activities">
+              <button class="btn btn-success">+</button>
               {{ activity.entity.type }}: {{ activity.title }}
             </div>
         </div>

@@ -34,6 +34,7 @@ export class TileCreatorComponent implements OnInit {
   }
 
   createEntity () {
+    if (!this.title) { return; }
     const activity = new Activity(this.title, this.entity, this.selectedInterval);
     this.title = '';
     this.entityActionsService.addActivity(activity);
